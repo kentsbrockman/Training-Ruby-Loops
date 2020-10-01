@@ -2,6 +2,7 @@ def ask_first_name
   puts "Salut ! Tu t'appelles comment ?"
   print "> "
   first_name = gets.chomp
+  puts first_name
   return first_name
 end
 

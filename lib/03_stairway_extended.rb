@@ -1,6 +1,5 @@
 # Welcome
 
-
 def welcome
 
   puts "
@@ -23,6 +22,7 @@ end
 # Lancer
 
 def lancer
+  
   n = 0
 
   puts "Bien, tu commences donc à la marche n°#{n}.
@@ -30,7 +30,12 @@ def lancer
 
   while n < 10
 
-    dice = "Tu es tombé sur #{rand(1..6)} !"
+    puts "Appuie sur entrée pour lancer le dé."
+
+    gets.chomp
+
+    dice = "Tu es tombé sur #{rand(1..6)} !
+    "
     puts dice
 
       if dice[16].to_i == 1
@@ -86,19 +91,13 @@ def lancer
         "
       else
       end
-
     end
 
     puts "BRAVO"
 
 end
 
+# Congrats
 
-def average
-  100. times do
-    lancer
-  end
-  
-end
 
-average
+lancer * 100
