@@ -26,7 +26,7 @@ At the end of the day, we all gotta start somewhere right!
 
 ## Author
 
-Quentin Plaud : https://github.com/kentsbrockman
+[Quentin Plaud](https://github.com/kentsbrockman)
 
 ---
 
