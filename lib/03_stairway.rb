@@ -15,7 +15,7 @@ def welcome
   while go != "oui"
     puts "Bah alors, t'es prêt ou quoi ?"
     print "> "
-  go = gets.chomp
+    go = gets.chomp
   end
 
 end
@@ -23,82 +23,67 @@ end
 # Lancer
 
 def lancer
-  n = 0
 
-  puts "Bien, tu commences donc à la marche n°#{n}.
-  "
+      rolls = []
 
-  while n < 10
+      n = 0
 
-    dice = "Tu es tombé sur #{rand(1..6)} !"
-    puts dice
+      puts "Bien, tu commences donc à la marche n°#{n}.
+      "
 
-      if dice[16].to_i == 1
-        puts "Damn, tu descends d'une marche :/
-        "
-        n = n - 1
-        if n < 0
-          n = 0
-        end
-        puts "Tu es maintenant situé à la marche n°#{n}
-        "
-      else
+      while n < 10
+
+        dice = "Tu es tombé sur #{rand(1..6)} !"
+        puts dice
+        rolls << dice
+
+          if dice[16].to_i == 1
+            puts "Damn, tu descends d'une marche :/"
+            n = n - 1
+            if n < 0
+              n = 0
+            end
+            puts "Tu es maintenant situé à la marche n°#{n}.
+            "
+
+          elsif dice[16].to_i >= 5
+            puts "Styleeeey, tu montes une marche !"
+            n = n + 1
+            puts "Tu es maintenant situé à la marche n°#{n}.
+            "
+
+          else
+            puts "Rien ne se passe..."
+            puts "Tu es donc toujours situé à la marche n°#{n}.
+            "
+          end
+
       end
+      
+      $total = rolls.count
 
-      if dice[16].to_i == 2
-        puts "Rien ne se passe...
-        "
-        puts "Tu es donc toujours situé à la marche n°#{n}
-        "
-      else
-      end
-
-      if dice[16].to_i == 3
-        puts "Rien ne se passe...
-        "
-        puts "Tu es donc toujours situé à la marche n°#{n}
-        "
-      else
-      end
-
-      if dice[16].to_i == 4
-        puts "Rien ne se passe...
-        "
-        puts "Tu es donc toujours situé à la marche n°#{n}
-        "
-      else
-      end
-
-      if dice[16].to_i == 5
-        puts "Styleeeey, tu montes une marche !
-        "
-        n = n + 1
-        puts "Tu es maintenant situé à la marche n°#{n}
-        "
-      else
-      end
-
-      if dice[16].to_i == 6
-        puts "Styleeeey, tu montes une marche !
-        "
-        n = n + 1
-        puts "Tu es maintenant situé à la marche n°#{n}
-        "
-      else
-      end
-
-    end
-
-    puts "BRAVO"
+      puts "===== BRAVO, tu as terminé la partie en #{$total} tours ! ====="
 
 end
 
 
-def average
+def average (rolls)
+
+  calculus = []
+
   100. times do
     lancer
+    calculus.push($total)
   end
-  
+
+      
+puts "
+#{calculus} \n" #{\n display les éléments de l'array}
+
+moyenne = calculus.sum.to_f / calculus.length
+
+puts "Ca y est, la boucle est bouclée, la moyenne du nombre de tours joués pour gagner le jeu est de #{moyenne} tours !"
+
 end
 
-average
+average (lancer)
