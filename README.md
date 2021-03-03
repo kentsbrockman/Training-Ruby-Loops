@@ -12,7 +12,7 @@ At the end of the day, we all gotta start somewhere right!
 
 ---
 
-## Set up 
+## Setup 
 
 1/ Get the resource:
   - Download the repository
